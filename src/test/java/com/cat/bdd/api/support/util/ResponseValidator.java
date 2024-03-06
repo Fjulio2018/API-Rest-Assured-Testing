@@ -39,7 +39,7 @@ public class ResponseValidator {
             InputStream schemaStream = getClass().getResourceAsStream(schemaFilePath);
 
             if (schemaStream == null) {
-                throw new IllegalArgumentException("Arquivo de schema não encontrado : " + schemaFilePath);
+                throw new IllegalArgumentException("Arquivo de schema não foi encontrado : " + schemaFilePath);
             }
 
             JSONObject jsonSchema = new JSONObject(new JSONTokener(schemaStream));
