@@ -22,7 +22,10 @@ Certifique-se de ter as seguintes ferramentas instaladas em seu sistema:
    ```bash
    cd API-Rest-Assured-Testing-main\API-Rest-Assured-Testing-main
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> e04f5931e7d23e304a8ed711b1ec139c7aa959a9
    ```
 
 3. Build do Projeto com Maven:
