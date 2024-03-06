@@ -20,7 +20,8 @@ Certifique-se de ter as seguintes ferramentas instaladas em seu sistema:
 2. Navegue até o diretório do projeto:
 
    ```bash
-   cd TheCatAPI
+   cd API-Rest-Assured-Testing-main\API-Rest-Assured-Testing-main> 
+
    ```
 
 3. Build do Projeto com Maven:
