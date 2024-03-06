@@ -2,6 +2,9 @@ package com.cat.bdd.api.stepdefinitions;
 
 import com.cat.bdd.api.support.api.VotoApi;
 import com.cat.bdd.api.support.util.ResponseValidator;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import io.cucumber.java.Before;
 import io.cucumber.java.it.Quando;
 import io.cucumber.java.pt.Dado;
@@ -9,11 +12,15 @@ import io.cucumber.java.pt.Entao;
 import io.restassured.response.Response;
 import org.junit.Assert;
 import static org.hamcrest.Matchers.*;
+import static org.junit.Assert.assertEquals;
+import static org.hamcrest.Matchers.notNullValue;
 
 import java.util.List;
+import java.util.Optional;
 
 public class GetSucessSteps {
     Response respoData;
+    String respoDataS;
     int quantidadeEsperada;
 
     private VotoApi votoApi;
@@ -64,7 +71,7 @@ public class GetSucessSteps {
     public void validarQuantidadeRetornada() {
         List<Object> jsonResponse = respoData.jsonPath().getList("$");
         int tamanhoRecebido = jsonResponse.size();
-        Assert.assertEquals(quantidadeEsperada, tamanhoRecebido);
+        assertEquals(quantidadeEsperada, tamanhoRecebido);
 
     }
 
@@ -123,6 +130,28 @@ public class GetSucessSteps {
 
         respoData = votoApi.realizarBuscaSemAutorizaçao(votoId,apikey);
 
+    }
+
+    @Dado("que eu realize um POST com parametros {}")
+    public void que_eu_realize_um_post_com_parametros(String votoId) {
+
+        respoData = votoApi.tentativaPostEmBusca(votoId);
+
+
+    }
+
+    @Entao("eu valido a mensagem {string} apresentada e o statuscode {int}")
+    public void eu_valido_a_mensagem_apresentada_e_o_statuscode(String messagem, Integer StatusCode) throws JsonProcessingException {
+
+        int codigoNaResposta = respoData.getStatusCode();
+        Assert.assertEquals((int) StatusCode, codigoNaResposta);
+
+        respoDataS = respoData.asString();
+
+        ObjectMapper objectMapper = new ObjectMapper();
+        JsonNode respostaNode = objectMapper.readTree(respoDataS);
+        String mensagemNaResposta = respostaNode.get("message").asText();
+        Assert.assertEquals(messagem, mensagemNaResposta);
     }
 
 }

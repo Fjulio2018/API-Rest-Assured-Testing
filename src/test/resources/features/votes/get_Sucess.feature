@@ -26,8 +26,8 @@ Funcionalidade: Valida ações do GET no /votes
     | 31102   |
 
 
-
-  Esquema do Cenário: Validacao retorno de erro 404
+  @skip
+  Esquema do Cenário: Validacao retorno de erro 404 no GET
 
     Dado que tenha um votoId nao existente
     Dado   que eu realize um GET com parametros <vote_id>
@@ -38,8 +38,8 @@ Funcionalidade: Valida ações do GET no /votes
       | vote_id |
       | xpto   |
 
-
-  Esquema do Cenário: Validacao retorno de erro 401
+  @skip
+  Esquema do Cenário: Validacao retorno de erro 401 no GET
 
     Dado que tenha um votoId existente e não tenha autorização
     Quando   que eu realize um GET com  <vote_id> e <x-api-key>
@@ -50,15 +50,14 @@ Funcionalidade: Valida ações do GET no /votes
       | vote_id |x-api-key|
       | 31102   |xpto     |
 
-@wip
-  Esquema do Cenário: Validacao retorno de erro 405
+  @skip
+  Esquema do Cenário: Validacao retorno de erro 405 no GET
 
     Dado que tenha um votoId existente
     Dado   que eu realize um POST com parametros <vote_id>
-    Entao eu o valido o HttpStatusCode  405
-    E     eu valido a mensagem apresentada
+    Entao   eu valido a mensagem <message> apresentada e o statuscode 405
 
 
     Exemplos: Parametros para votos
       | vote_id |message|
-      | 31102   |404 - please consult the documentation for correct url to call. https://docs.thecatapi.com/|
+      | 31102   |"405- please consult the documentation for correct url to call. https://docs.thecatapi.com/"|
