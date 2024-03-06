@@ -2,7 +2,7 @@
 
 Funcionalidade: Valida ações do POST no /votes
 
-  @skip
+
   Cenario:  Validar criação de votos e contrato
 
     Dado que eu performar o POST com dados do body
@@ -13,7 +13,7 @@ Funcionalidade: Valida ações do POST no /votes
     Quando eu validar o HttpStatusCode created
     Entao eu valido o contrato "post_Schema.json"
 
-  @skip
+
   Esquema do Cenário: Validações de campos obrigatorio no payloa
   -Até o momento a documentação não demonstra os campos
   -Partindo do principio que teodos os campos do payload são obrigatorios

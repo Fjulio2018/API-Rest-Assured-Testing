@@ -2,7 +2,7 @@
 
 Funcionalidade: Valida ações do GET no /votes
 
-  @skip
+
   Esquema do Cenario: Validar limite
     Dado que eu faca a busca com <limite>
     Quando validar o response
@@ -14,7 +14,7 @@ Funcionalidade: Valida ações do GET no /votes
       | 2      |
       | 5      |
 
-  @skip
+
   Esquema do Cenário: Validacao de contrato
 
     Dado   que eu realize um GET com parametros <vote_id>
@@ -26,7 +26,7 @@ Funcionalidade: Valida ações do GET no /votes
     | 31102   |
 
 
-  @skip
+
   Esquema do Cenário: Validacao retorno de erro 404 no GET
 
     Dado que tenha um votoId nao existente
@@ -38,7 +38,7 @@ Funcionalidade: Valida ações do GET no /votes
       | vote_id |
       | xpto   |
 
-  @skip
+
   Esquema do Cenário: Validacao retorno de erro 401 no GET
 
     Dado que tenha um votoId existente e não tenha autorização
@@ -50,7 +50,7 @@ Funcionalidade: Valida ações do GET no /votes
       | vote_id |x-api-key|
       | 31102   |xpto     |
 
-  @skip
+
   Esquema do Cenário: Validacao retorno de erro 405 no GET
 
     Dado que tenha um votoId existente
