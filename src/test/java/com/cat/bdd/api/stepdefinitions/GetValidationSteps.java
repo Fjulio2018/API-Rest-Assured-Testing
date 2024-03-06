@@ -11,14 +11,13 @@ import io.cucumber.java.pt.Dado;
 import io.cucumber.java.pt.Entao;
 import io.restassured.response.Response;
 import org.junit.Assert;
-import static org.hamcrest.Matchers.*;
+
 import static org.junit.Assert.assertEquals;
 import static org.hamcrest.Matchers.notNullValue;
 
 import java.util.List;
-import java.util.Optional;
 
-public class GetSucessSteps {
+public class GetValidationSteps {
     Response respoData;
     String respoDataS;
     int quantidadeEsperada;
@@ -27,12 +26,10 @@ public class GetSucessSteps {
     ResponseValidator responseValidate = new ResponseValidator();
 
 
-
     @Before
     public void setup() {
 
         votoApi = new VotoApi();
-
 
 
     }
@@ -44,8 +41,8 @@ public class GetSucessSteps {
         respoData = votoApi.realizarBuscaComLimite(limit);
 
 
-
     }
+
     @Quando("validar o response")
     public void validarResponse() {
         respoData.then()
@@ -111,6 +108,7 @@ public class GetSucessSteps {
 */
 
     }
+
     @Dado("que tenha um votoId existente")
     public void que_tenha_um_voto_id_existente() {
         /*
@@ -128,7 +126,7 @@ public class GetSucessSteps {
     @Quando("que eu realize um GET com  {} e {}")
     public void que_eu_realize_um_get_com_(String votoId, String apikey) {
 
-        respoData = votoApi.realizarBuscaSemAutorizaçao(votoId,apikey);
+        respoData = votoApi.realizarBuscaSemAutorizaçao(votoId, apikey);
 
     }
 

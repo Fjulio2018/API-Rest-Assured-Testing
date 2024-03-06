@@ -13,7 +13,7 @@ public class Hooks {
                 .setBaseUri("https://api.thecatapi.com")
                 .setBasePath("/v1/votes")
                 .addHeader("Content-Type", "application/json")
-                .addHeader("x-api-key", "DEMO-API-KEY") // Adicionando apiKey ao cabeçalho
+                .addHeader("x-api-key", "DEMO-API-KEY")
                 .build();
     }
 

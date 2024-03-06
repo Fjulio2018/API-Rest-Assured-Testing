@@ -6,7 +6,6 @@ import io.cucumber.datatable.DataTable;
 import io.cucumber.java.es.Dado;
 import io.cucumber.java.it.Quando;
 import io.cucumber.java.pt.Entao;
-import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import org.apache.http.HttpStatus;
 import org.json.JSONObject;
@@ -15,12 +14,24 @@ import org.junit.Assert;
 import java.util.List;
 import java.util.Map;
 
-public class Post_SucessSteps {
+public class Post_ValidationSteps {
 
     VotoApi votoApi = new VotoApi();
     ResponseValidator responseValidate;
-    Response responseBody;
+
+    public Response getResponseBody() {
+        return responseBody;
+    }
+
+    public Response responseBody;
     private Response response;
+
+
+    private static String postId;
+
+    public static String getPostId() {
+        return postId;
+    }
 
 
     @Dado("que eu performar o POST com dados do body")
@@ -34,26 +45,28 @@ public class Post_SucessSteps {
                 String key = entry.getKey();
                 String value = entry.getValue();
 
-                // Verifica se key é "image_id" e value é "EMPTY"
+
                 if ("image_id".equals(key) && "EMPTY".equalsIgnoreCase(value)) {
-                    value = ""; // Define image_id como vazio
+                    value = "";
                 }
 
-                // Adiciona o par chave-valor ao requestParams
                 requestParams.put(key, value);
             }
 
-            // Move a chamada do método realizarVoto para fora do loop interno
+
             responseBody = votoApi.realizarVoto(requestParams);
+            postId = responseBody.jsonPath().getString("id");
+            System.out.println("Este é o postID: " + postId);
         }
     }
+
     @Quando("eu validar o HttpStatusCode created")
     public void eu_validar_o_http_status_code_created() {
         Assert.assertEquals(responseBody.getStatusCode(), HttpStatus.SC_CREATED);
     }
 
     @Entao("eu valido o contrato {string}")
-    public void eu_valido_o_contrato(String nomeSchema)  {
+    public void eu_valido_o_contrato(String nomeSchema) {
 
         responseValidate = new ResponseValidator();
         responseValidate.fromJson(responseBody.asString());

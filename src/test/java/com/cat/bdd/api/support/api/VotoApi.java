@@ -3,9 +3,6 @@ package com.cat.bdd.api.support.api;
 import com.cat.bdd.api.stepdefinitions.Hooks;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
-import io.restassured.specification.RequestSpecification;
-import io.restassured.module.jsv.JsonSchemaValidator;
-import io.restassured.path.json.JsonPath;
 import org.json.JSONObject;
 
 public class VotoApi {
@@ -59,9 +56,7 @@ public class VotoApi {
     }
 
 
-
-
-    public Response realizarBuscaSemAutorizaçao(String votoId, String apikey ) {
+    public Response realizarBuscaSemAutorizaçao(String votoId, String apikey) {
         String url = "https://api.thecatapi.com/v1/votes/" + votoId;
 
         return (Response) RestAssured.given()
@@ -88,7 +83,18 @@ public class VotoApi {
     }
 
 
+    public Response deletaVoto(String voteId) {
+        String url = "https://api.thecatapi.com/v1/votes/" + voteId;
 
-
-
+        return RestAssured.given()
+                .header("x-api-key", API_KEY)
+                .contentType("application/json")
+                .log().all()
+                .when()
+                .delete(url)
+                .then()
+                .log().all()
+                .extract().response();
+    }
 }
+
