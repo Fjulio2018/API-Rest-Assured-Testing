@@ -45,7 +45,7 @@ public class ResponseValidator {
             JSONObject jsonSchema = new JSONObject(new JSONTokener(schemaStream));
             SchemaLoader.load(jsonSchema).validate(new JSONObject(jsonPath.prettify()));
         } catch (ValidationException e) {
-            throw new AssertionError("Response mão bate com schema: " + e.getMessage());
+            throw new AssertionError("Response não bate com schema: " + e.getMessage());
         }
     }
 
