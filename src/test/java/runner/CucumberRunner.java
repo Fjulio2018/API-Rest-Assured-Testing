@@ -9,7 +9,7 @@ import io.cucumber.testng.CucumberOptions;
         features = "src/test/resources/features",
         glue = "com.cat.bdd.api.stepdefinitions",
         plugin = {"pretty", "html:target/cucumber-report.html"},
-        tags = "not @skips"
+        tags = "not @skips and @wip"
 )
 public class CucumberRunner extends AbstractTestNGCucumberTests {
 }

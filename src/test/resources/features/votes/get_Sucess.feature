@@ -50,7 +50,7 @@ Funcionalidade: Valida ações do GET no /votes
       | vote_id |x-api-key|
       | 31102   |xpto     |
 
-
+@wip
   Esquema do Cenário: Validacao retorno de erro 405
 
     Dado que tenha um votoId existente
