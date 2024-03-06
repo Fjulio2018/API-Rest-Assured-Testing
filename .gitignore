@@ -1,0 +1,39 @@
+# Arquivos compilados Java
+*.class
+
+# Arquivos de log
+*.log
+
+# Diretório de saída do build Maven
+target/
+
+# Configurações do IDE IntelliJ
+.idea/
+
+# Configurações do IDE Visual Studio Code
+.vscode/
+
+# Arquivos específicos do Eclipse
+.classpath
+.project
+.settings/
+
+# Configurações do IntelliJ
+*.iml
+.idea
+
+# Diretório de saída do compilador Java
+output/
+
+# Diretório de saída do teste TestNG
+test-output/
+
+# Wrapper Maven
+.mvn/wrapper/
+
+# Diretório gerado pelo Lombok
+target/generated-sources/lombok/
+lombok.config
+
+# Resultados do Allure
+allure-results/

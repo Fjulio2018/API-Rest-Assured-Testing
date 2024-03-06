@@ -1,0 +1,43 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Generated schema for Cat Vote",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "number"
+    },
+    "user_id": {
+      "type": "string"
+    },
+    "image_id": {
+      "type": "string"
+    },
+    "sub_id": {
+      "type": ["string", "null"]
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "value": {
+      "type": "number"
+    },
+    "country_code": {
+      "type": ["string", "null"]
+    },
+    "image": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string",
+          "format": "uri"
+        }
+      },
+      "required": ["id", "url"]
+    }
+  },
+  "required": ["id", "user_id", "image_id", "created_at", "value", "image"]
+}
