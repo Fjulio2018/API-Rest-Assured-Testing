@@ -14,13 +14,13 @@ Certifique-se de ter as seguintes ferramentas instaladas em seu sistema:
 1. Clone este repositório em sua máquina local:
 
    ```bash
-   git clone https://seu-repositorio-git/qa-api-automation.git
+   git clone https://github.com/Fjulio2018/API-Rest-Assured-Testing
    ```
 
 2. Navegue até o diretório do projeto:
 
    ```bash
-   cd qa-api-automation
+   cd TheCatAPI
    ```
 
 3. Build do Projeto com Maven:
@@ -47,12 +47,57 @@ Isso iniciará a execução dos testes usando o runner Cucumber.
 
 ## Dependências Principais
 
-- Java 21
-- Maven 3.9.6
-- TestNG 7.7.1
-- Cucumber 7.11.1
-- Rest Assured 5.3.0
-- ...
+    TestNG:
+        Nome: TestNG
+        Versão: 7.7.1
+
+    Cucumber:
+        Nome: Cucumber Java
+        Versão: 7.11.1
+        Nome: Cucumber TestNG
+        Versão: 7.11.1
+
+    RestAssured:
+        Nome: RestAssured
+        Versão: 5.3.0
+
+    Hamcrest:
+        Nome: Hamcrest Core
+        Versão: 1.3
+
+    JSON Schema Validator:
+        Nome: JSON Schema Validator (RestAssured)
+        Versão: 5.3.0
+
+    Lombok:
+        Nome: Lombok
+        Versão: 1.18.28
+
+    AssertJ:
+        Nome: AssertJ Core
+        Versão: 3.24.2
+
+    Owner:
+        Nome: Owner
+        Versão: 1.0.12
+
+    Cucumber PicoContainer:
+        Nome: Cucumber PicoContainer
+        Versão: 7.12.1
+
+    Allure:
+        Nome: Allure RestAssured
+        Versão: 2.22.1
+        Nome: Allure TestNG
+        Versão: 2.18.1
+
+    JSON Simple:
+        Nome: JSON Simple
+        Versão: 1.1.1
+
+    Everit JSON Schema:
+        Nome: Everit JSON Schema
+        Versão: 1.5.1
 
 ## Relatórios
 
@@ -60,5 +105,4 @@ Os relatórios de execução podem ser encontrados no diretório `target/surefir
 
 ## Notas Adicionais
 
-- Certifique-se de ajustar as versões das dependências conforme necessário no arquivo `pom.xml`.
-- Personalize este README conforme necessário para incluir informações específicas do seu projeto.
+
