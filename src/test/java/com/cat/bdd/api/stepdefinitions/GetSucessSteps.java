@@ -68,22 +68,19 @@ public class GetSucessSteps {
 
     }
 
-    @Dado("que eu realize um GET com parametros {int}")
-    public void que_eu_realize_um_get_com_parametros_valorparam(int valorparam) {
+    @Dado("que eu realize um GET com parametros {}")
+    public void que_eu_realize_um_get_com_parametros_valorparam(String valorparam) {
 
         System.out.println(valorparam);
 
         respoData = votoApi.realizarBuscaComParametro(valorparam);
 
 
-
-
-
     }
 
 
-    @Quando("o HttpStatusCode sera {int}")
-    public void oHttpStatusCodeSera(int StstusCode) {
+    @Quando("eu o valido o HttpStatusCode  {int}")
+    public void eu_o_valido_o_http_status_code(int StstusCode) {
         respoData.then()
                 .statusCode(StstusCode)
                 .body(notNullValue());
@@ -97,6 +94,34 @@ public class GetSucessSteps {
         responseValidate.assertJsonSchema("/schema/get_schema.json");
         //responseValidate.assertJsonSchema("/schema/get_Error.json");
 
+
+    }
+
+    @Dado("que tenha um votoId nao existente")
+    public void que_tenha_um_voto_id_nao_existente() {
+        /*
+   Este cenário é apenas para contextualizar.
+*/
+
+    }
+    @Dado("que tenha um votoId existente")
+    public void que_tenha_um_voto_id_existente() {
+        /*
+   Este cenário é apenas para contextualizar.
+*/
+    }
+
+    @Dado("que tenha um votoId existente e não tenha autorização")
+    public void que_tenha_um_voto_id_existente_e_não_tenha_autorização() {
+        /*
+   Este cenário é apenas para contextualizar.
+*/
+    }
+
+    @Quando("que eu realize um GET com  {} e {}")
+    public void que_eu_realize_um_get_com_(String votoId, String apikey) {
+
+        respoData = votoApi.realizarBuscaSemAutorizaçao(votoId,apikey);
 
     }
 

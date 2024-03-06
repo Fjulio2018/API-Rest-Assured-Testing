@@ -31,7 +31,7 @@ public class VotoApi {
                 .extract().response();
     }
 
-    public Response realizarBuscaComParametro(int valorparam) {
+    public Response realizarBuscaComParametro(String valorparam) {
         String url = "https://api.thecatapi.com/v1/votes/" + valorparam;
 
         return (Response) RestAssured.given()
@@ -41,7 +41,6 @@ public class VotoApi {
                 .when()
                 .get(url)
                 .then()
-                .statusCode(200)
                 .extract().response();
     }
 
@@ -54,6 +53,19 @@ public class VotoApi {
                 .log().all()
                 .when()
                 .post(BASE_URI + "votes")
+                .then()
+                .extract().response();
+    }
+
+    public Response realizarBuscaSemAutorizaçao(String votoId, String apikey ) {
+        String url = "https://api.thecatapi.com/v1/votes/" + votoId;
+
+        return (Response) RestAssured.given()
+                .contentType("application/json")
+                .header("x-api-key", apikey)
+                .log().all()
+                .when()
+                .get(url)
                 .then()
                 .extract().response();
     }
